@@ -1,7 +1,9 @@
 from django.db import models
 
+
 class File(models.Model):
-    file = models.FileField()
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    file = models.FileField(upload_to="files/")
     uploaded_at = models.DateTimeField(auto_now_add=True)
     processed = models.BooleanField(default=False)
-    
