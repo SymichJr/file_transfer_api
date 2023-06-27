@@ -3,6 +3,7 @@ version: '3'
 volumes:
   pg_data:
   code:
+  static:
 
 services:
   db:
@@ -21,6 +22,7 @@ services:
     build: ./file_transfer_api/
     env_file: .env
     volumes:
+      - static:/static
       - code:/backend
     depends_on:
       - db
